@@ -26,7 +26,7 @@ namespace ConsoleApp1
          
             URL = url;
 
-            int indiceInterrogacao = url.IndexOf(""); //obtendo o indice do caractere 
+            int indiceInterrogacao = url.IndexOf(" "); //obtendo o indice do caractere 
 
             //Método substring - possibilita obtermos um trecho de uma string através do índice, criando uma nova string com o trecho
             //string é uma palavra reservada. A classe String também pode ser utlizada como um tipo, porém o mais comum é se utlizar string
@@ -42,10 +42,19 @@ namespace ConsoleApp1
             string parametro = nomeParametro + "="; //obtendo o nome do parametro parssado (moedaOrigem ou moedaDestino) + "="
             int indiceParametro = _argumentos.IndexOf(parametro); //obtendo o indice do parâmetro passado (no caso seria a letra "m")
 
-            return _argumentos.Substring(indiceParametro + parametro.Length); //somando o indice do parêmetro com seu tamanho podemos obter o último caractere do parâmetro passado
-                                                                      //com isso aplicando o método Substring podemos obter o termo após o parâmtro passado (que foi somado a "=") 
+            string resultado =  _argumentos.Substring(indiceParametro + parametro.Length); //somando o indice do parêmetro com seu tamanho podemos obter o último caractere do parâmetro passado
+                                                                                           //com isso aplicando o método Substring podemos obter o termo após o parâmtro passado (que foi somado a "=") 
+            
+            int indiceInterrogacao = resultado.IndexOf('&'); //obtendo o indice do caractere "&"
+            
+            if (indiceInterrogacao == -1) //quando tentamos obter um indice que não exixte o complador retrona como padrão o valor "-1". Para não gerar uma excessão no caso de não
+                                          //haver o indice informado (&), ou seja o parâmetro infromado é o último da string, faremos essa verificação.
+            {
+                return resultado;
+            }
 
 
+            return resultado.Remove(indiceInterrogacao); //removendo qualquer termo colocado após o "&"
         }
 
 
