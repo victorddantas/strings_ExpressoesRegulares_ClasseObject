@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -11,13 +12,16 @@ namespace SistemaAgencia
     {
         static void Main(string[] args)
         {
-           
-           // metodoSubstring();
-      
+
+            //exemploMetodoSubstring();
+            //utilizandoExtratorDeUrl();
+
+
+
         }
 
         #region Trabalhando com strings
-        private static void metodoSubstring()
+        private static void exemploMetodoSubstring()
         {
 
             //Método substring - possibilita obtermos um trecho de uma string através do índice, criando uma nova string com o trecho 
@@ -37,6 +41,20 @@ namespace SistemaAgencia
             Console.ReadLine();
         }
 
+
+        private static void utilizandoExtratorDeUrl()
+        {
+
+        
+            string url = "https://www.google.com/cambio?moedaOrigem=real&moedaDestino=Dolar";
+            extratorDeUrl e = new extratorDeUrl(url);
+
+
+            Console.WriteLine(e.obterValor("moedaDestino"));
+            
+
+            Console.ReadLine();
+        }
 
 
         #endregion
