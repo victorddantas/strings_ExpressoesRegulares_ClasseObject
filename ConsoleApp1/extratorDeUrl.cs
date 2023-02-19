@@ -39,10 +39,12 @@ namespace ConsoleApp1
 
         public string obterValor(string nomeParametro)
         {
-            string parametro = nomeParametro + "="; //obtendo o nome do parametro parssado (moedaOrigem ou moedaDestino) + "="
-            int indiceParametro = _argumentos.IndexOf(parametro); //obtendo o indice do parâmetro passado (no caso seria a letra "m")
+            string normalizandoCaracterEDoArgumento = _argumentos.ToUpper(); //covertendo o valor do argumento em caixa alta 
 
-            string resultado =  _argumentos.Substring(indiceParametro + parametro.Length); //somando o indice do parêmetro com seu tamanho podemos obter o último caractere do parâmetro passado
+            string parametro = nomeParametro + "="; //obtendo o nome do parametro passado (moedaOrigem ou moedaDestino) + "="
+            int indiceParametro = normalizandoCaracterEDoArgumento.IndexOf(parametro); //obtendo o indice do parâmetro passado (no caso seria a letra "m")
+
+            string resultado = _argumentos.Substring(indiceParametro + parametro.Length); //somando o indice do parêmetro com seu tamanho podemos obter o último caractere do parâmetro passado
                                                                                            //com isso aplicando o método Substring podemos obter o termo após o parâmtro passado (que foi somado a "=") 
             
             int indiceInterrogacao = resultado.IndexOf('&'); //obtendo o indice do caractere "&"

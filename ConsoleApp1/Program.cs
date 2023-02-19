@@ -15,7 +15,7 @@ namespace SistemaAgencia
 
             //exemploMetodoSubstring();
             //utilizandoExtratorDeUrl();
-
+            //verificandoSeExisteUmTermoNaString();
 
 
         }
@@ -50,12 +50,26 @@ namespace SistemaAgencia
             extratorDeUrl e = new extratorDeUrl(url);
 
 
-            Console.WriteLine(e.obterValor("moedaDestino"));
+            Console.WriteLine(e.obterValor("MOEDADESTINO"));
             
 
             Console.ReadLine();
         }
 
+
+        private static void verificandoSeExisteUmTermoNaString()
+        {
+            string url = "https://www.google.com/cambio?moedaOrigem=real&moedaDestino=Dolar";
+           
+
+            Console.WriteLine(url.Contains("google")); //utilizando o método contains para verificar se um termo exitse dentro de um determinada string (retona um bool)
+
+            Console.WriteLine(url.StartsWith("https://www.google.com/")); //utilizando o método StartsWith para verificar se uma string inicia com determinado termo
+
+            Console.WriteLine(url.EndsWith("Dolar"));//utilizando o método EndsWith para verificar se uma string termina com determinado termo
+
+            Console.ReadLine();
+        }
 
         #endregion
     }
