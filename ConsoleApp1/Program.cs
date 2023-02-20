@@ -77,9 +77,20 @@ namespace SistemaAgencia
             //Uma expressão regular é uma expressão que criamos com uma determinada, onde um termo definido a partir dessa expressão deve respeitar essas regras definidas nessa expressão 
 
 
-            //podemos definir uma expressão regular por exemplo para o padrão de escrita de um número de telefone 
+            //podemos definir uma expressão regular por exemplo para o padrão de escrita de um número de telefone :
+            //Exemplos: 
 
-            string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            //string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+
+            //string padrao = "[0-9]{4,5}[-]{0,1}[0-9]{4}";
+
+            //string padrao = "[0-9]{4,5}-{0,1}[0-9]{4}";
+            
+            string padrao = "[0-9]{4,5}-?[0-9]{4}";
+
+
+
+
 
             //Um número de telefone deve respeitar as seguintes regras impostas na expressão acima (8 caracteres de 0 a 9 separados po um hifen) 
 
@@ -87,7 +98,7 @@ namespace SistemaAgencia
 
             //Exemplo: Verificar se os dados de uma string é compátivel com a expressão regular definida em "padrao".
 
-            string textoDeTeste = "Meu número de telefone é 9999-9999";
+            string textoDeTeste = "Meu número de telefone é 99999-9999";
 
             Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao)); //O IsMatch é um método do regex que permite verificar se no texto proposto exite um termo que repeite a regra proposta na expressão regular
 
