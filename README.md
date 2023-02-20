@@ -1,1 +1,1 @@
-# A classe string e seus métodos, expressões regulares e a classe object. 
+# A classe string e seus métodos, Regex e a classe object. 
